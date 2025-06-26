@@ -1,0 +1,35 @@
+<mat-toolbar class="custom-toolbar">  
+    <div>   
+     <button mat-button [matMenuTriggerFor]="menuAplicaciones" class="btn-rojo">   
+      <mat-icon>dock</mat-icon>   
+      Aplicaciones   
+     </button>   
+    </div> 
+    <div>   
+        <button mat-button [matMenuTriggerFor]="menuVersiones" class="btn-rojo">   
+         <mat-icon>swap_vertical_circle</mat-icon>   
+         Versiones   
+        </button>   
+    </div>      
+    <div>   
+        <button mat-button [matMenuTriggerFor]="menuReportes" class="btn-rojo">   
+         <mat-icon>file_copy</mat-icon>   
+         Reportes   
+        </button>   
+    </div>  
+</mat-toolbar>   
+
+<mat-menu #menuAplicaciones="matMenu">  
+    <button mat-menu-item routerLink="/aplicaciones">Listar</button>   
+    <button mat-menu-item routerLink="/aplicaciones/nuevo">Registrar</button>
+    <button mat-menu-item routerLink="/aplicaciones/busquedas">Buscar por tipo</button>   
+</mat-menu>
+<mat-menu #menuVersiones="matMenu">  
+    <button mat-menu-item routerLink="/versiones">Listar</button> 
+    <button mat-menu-item routerLink="/versiones/inserciones">Registrar</button>     
+    
+</mat-menu>
+<mat-menu #menuReportes="matMenu">  
+    <button mat-menu-item routerLink="/reportes">Reporte cantidad</button>    
+    <button mat-menu-item routerLink="/reportes/montos">Reporte monto</button>    
+</mat-menu>

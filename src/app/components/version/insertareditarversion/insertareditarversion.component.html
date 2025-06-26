@@ -1,0 +1,68 @@
+<div class="container">
+    <div style="text-align: center;margin: 5%;">
+        <h1>Registro de versiones</h1>
+    </div>
+    <div  style="text-align: center;margin: 5%;">
+        <form [formGroup]="form" (submit)="aceptar()">
+            <mat-form-field class="example-full-width">
+                <mat-label>Número de versión</mat-label>
+                <input matInput placeholder="12" formControlName="numero">
+                <mat-error *ngIf="form.get('numero')?.hasError('required')">
+                    El número es obligatorio!!
+                </mat-error>
+            </mat-form-field>
+            <br>
+            <mat-form-field>
+                <mat-label>Fecha de lanzamiento</mat-label>
+                <input matInput [matDatepicker]="picker" formControlName="fecha">
+                <mat-hint>MM/DD/YYYY</mat-hint>
+                <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+                <mat-error *ngIf="form.get('fecha')?.hasError('required')">
+                    La fecha de lanzamiento es obligatoria!!
+                </mat-error>
+            </mat-form-field>
+            <br>
+            <mat-form-field>
+                <mat-label>Textarea</mat-label>
+                <textarea matInput formControlName="anotaciones"></textarea>
+                <mat-error *ngIf="form.get('anotaciones')?.hasError('required')">
+                    Los detalles son obligatorios!!
+                </mat-error>
+            </mat-form-field>
+            <br>
+            <mat-form-field class="example-full-width">
+                <mat-label>Monto</mat-label>
+                <input matInput placeholder="12" formControlName="monto">
+                <mat-error *ngIf="form.get('monto')?.hasError('required')">
+                    El monto es obligatorio!!
+                </mat-error>
+            </mat-form-field>
+            <br>
+            <mat-form-field class="example-full-width">
+                <mat-label>Responsable</mat-label>
+                <input matInput placeholder="Jefe de TI" formControlName="responsable">
+                <mat-error *ngIf="form.get('responsable')?.hasError('required')">
+                    El responsable es obligatorio!!
+                </mat-error>
+            </mat-form-field>
+            <br>
+            <mat-form-field>
+                <mat-label>Seleccione aplicación</mat-label>
+                <mat-select formControlName="apli">
+                    @for (food of listaAplicaciones; track food) {
+                    <mat-option [value]="food.idApp">{{food.nameApp}}</mat-option>
+                    }
+                </mat-select>
+                <mat-error *ngIf="form.get('apli')?.hasError('required')">
+                    La app es obligatoria!!
+                </mat-error>
+            </mat-form-field>
+            <br>
+            <button matButton="elevated">Registrar</button>
+
+
+        </form>
+    </div>
+
+</div>

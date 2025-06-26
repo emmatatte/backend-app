@@ -1,0 +1,8 @@
+button[matButton] {
+    background-color: hsl(0, 9%, 98%);   
+    border: none;   
+    width: 50%;   
+    box-shadow: none;      
+    outline: none;      
+    color:rgb(46, 158, 46)     
+   }
